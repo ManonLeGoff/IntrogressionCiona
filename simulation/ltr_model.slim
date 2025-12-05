@@ -1,0 +1,171 @@
+//Simulation local adaptive introgression with 10 population
+initialize() {
+    initializeTreeSeq();
+    initializeMutationRate(0);
+
+//Generate a mutation which is unfavourable in the environment before the introgression occurs    
+    //neutral mutations    
+    initializeMutationType("m0", 0.5, "f", 0.0);
+    m0.convertToSubstitution = F;
+    
+    // an m1 mutation is "S"
+	 initializeMutationType("m1", 0.0, "f", 0.2); 
+	 m1.convertToSubstitution = F;
+	 m1.color = "red";
+	 
+	 // an m2 mutation is "R"
+	 initializeMutationType("m2", 0.0, "f", 0.2);
+	 m2.convertToSubstitution = F;
+	 m2.color = "cornflowerblue";
+	 
+	 // enforce mutually exclusive replacement
+	 c(m1,m2).mutationStackGroup = 1;
+	 c(m1,m2).mutationStackPolicy = 'l';
+	 
+	 //initialize genomic elements
+	 //neutral
+    initializeGenomicElementType("g1", m0, 1);
+    initializeGenomicElement(g1, 0, 3749969);
+    initializeGenomicElement(g1, 3749971, 7499939);
+    g1.color = "white";
+    
+    //mutation
+    initializeGenomicElementType("g2", c(m1,m2), c(1,1));
+    initializeGenomicElement(g2, 3749970, 3749970);
+    g2.color = "black";
+    
+    initializeRecombinationRate(1e-7);
+   
+}
+
+// define mutation effects (counter-selected in habitat 2) :
+mutationEffect(m2, p1) { return 1/effect; }
+mutationEffect(m2, p2) { return 1/effect; }
+mutationEffect(m2, p4) { return 1/effect; }
+mutationEffect(m2, p5) { return 1/effect; }
+mutationEffect(m2, p6) { return 1/effect; }
+
+mutationEffect(m1, p3) { return 1/effect; }
+mutationEffect(m1, p7) { return 1/effect; }
+mutationEffect(m1, p8) { return 1/effect; }
+mutationEffect(m1, p9) { return 1/effect; }
+mutationEffect(m1, p10) { return 1/effect; }
+
+// define the two divergening species in p1 and p2 :
+
+1 early() {
+    defineConstant("simID", getSeed());
+    sim.addSubpop("p1", 1000);
+    sim.addSubpop("p2", 1000);
+    
+    // create the canonical mutation objects
+	 target = p1.haplosomes[0];
+	 target = p2.haplosomes[0];
+	 target.addNewDrawnMutation(m1, 3749970);
+	 defineConstant("MUT1", target.mutations);
+	 target.removeMutations();
+	 target.addNewDrawnMutation(m2, 3749970);
+	 defineConstant("MUT2", target.mutations);
+	 target.removeMutations();
+	
+	// start homozygous "SS" in deme 1 and deme 2
+	p1.haplosomes.addMutations(MUT1);
+	p2.haplosomes.addMutations(MUT1); 
+	
+
+    writeFile("/Volumes/MANON/Data_cione/simulation/pipeline/results/ltr_model/simulations/mig" + mig1 + "_rep" + rep + "/migration_rate.txt",
+          "Migration rate (mig1): " + mig1 + "\n");
+}
+
+mutation(m1) {
+   // unique down to the canonical m1 mutation
+	return MUT1[3749970];
+   }
+
+mutation(m2) {
+   // unique down to the canonical m2 mutation
+	return MUT2[3749970]; 
+   }
+
+
+10 late () {
+    sim.addSubpopSplit("p3", 1000, p1);
+    
+    pop2 = c("p4", "p5", "p6","p7", "p8", "p9", "p10");
+    for (p in pop2) {
+    sim.addSubpopSplit(p, 1000, p2);}
+    
+    // Connecter p3 et p1
+    p3.setMigrationRates(p1, mig1);
+    p1.setMigrationRates(p3, mig1);
+    
+   // Connecter pop receveuse
+	// habitat favorable 
+	p2.setMigrationRates(p4, mig1);
+	p4.setMigrationRates(p2, mig1);
+		
+	p4.setMigrationRates(p5, mig1);
+	p5.setMigrationRates(p4, mig1);
+	
+	p5.setMigrationRates(p6, mig1);
+	p6.setMigrationRates(p5, mig1);
+
+	// habitat défavorable 
+	p7.setMigrationRates(p8, mig1);
+	p8.setMigrationRates(p7, mig1);
+	
+	p8.setMigrationRates(p9, mig1);
+	p9.setMigrationRates(p8, mig1);
+	
+	p9.setMigrationRates(p10, mig1);
+	p10.setMigrationRates(p9, mig1);
+	
+	// Entre l'habitat favorable et défavorable
+	p2.setMigrationRates(p7, mig1);
+	p7.setMigrationRates(p2, mig1);
+	
+	p4.setMigrationRates(p8, mig1);
+	p8.setMigrationRates(p4, mig1);
+	
+	p5.setMigrationRates(p9, mig1);
+	p9.setMigrationRates(p5, mig1);
+	
+	p6.setMigrationRates(p10, mig1);
+	p10.setMigrationRates(p6, mig1);
+	}
+
+
+// Introduction of the advantageous mutation in the first species :
+
+250 late() {
+    target = sample(p3.haplosomes, 1);
+    target.addNewDrawnMutation(m2, 3749970);}
+
+// Migration between pop 1 and pop 2
+
+700:710 late() {
+	p2.setMigrationRates(p1, 0.001);}
+	
+// Registration of allelic frequencies and local ancestry every 10 years
+700:900 late() {
+
+//Allele frequency
+    if (sim.cycle % 10 == 0) {  
+        popintro = c(p2, p4, p5, p6, p7, p8, p9, p10);
+
+        for (pop in popintro) {
+            freq = sim.mutationFrequencies(pop, sim.mutationsOfType(m2));
+            writeFile("results/ltr_model/simulations/mig" + mig1 + "_rep" + rep + "/freq_pop.txt" ,
+                      sim.cycle + "\t" + pop.id + "\t" + freq + "\n", append = T);
+        }
+    }
+}
+    
+// Local ancestry
+740:860 late() {
+if (sim.cycle % 20 == 0) {
+        sim.treeSeqOutput("results/ltr_model/simulations/mig" + mig1 + "_rep" + rep + "/trees/generation" + sim.cycle + ".trees");
+    }
+}
+
+900 late() {sim.simulationFinished();}
