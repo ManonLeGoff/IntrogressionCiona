@@ -1,4 +1,4 @@
-# Contrasting the chromosomal footprints of local and global adaptive introgression: the sea squirt _Ciona intestinalis_ as a case study
+# Adaptive introgression in _Ciona intestinalis_
 
 This repository contains simulations and analyses investigating the propagation of adaptive introgression in subdivided populations.
 
