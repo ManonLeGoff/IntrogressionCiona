@@ -7,24 +7,15 @@ This repository contains simulations and analyses investigating the propagation 
 ## Simulations
 
 - Simulation-based approach to model global vs. local adaptive introgression.  
-- Examined how allele frequency and the extent of chromosomal tracts vary across populations.  
-- Implemented using Python (SLiM) and R for analysis.
+- Examined how allele frequency and lenght of introgressed tracts vary across the two models.  
 
 ---
 
 ## Empirical Data
 
 - Case study: _Ciona robusta_ → _Ciona intestinalis_ introgression.  
-- Genotyped 96 individuals across 8 populations using ancestry-informative SNPs.  
-- Compared simulation results with empirical data to distinguish local adaptation from global introgression patterns.
-
----
-
-## Repository Structure
-
-- scripts/ – simulation and analysis scripts  
-- results/ – processed data and summary tables  
-- figures/ – plots and visualizations  
+- Genotyped 96 individuals across 8 populations using phased data.  
+- Compared simulation results with empirical data.
 
 ---
 
