@@ -53,35 +53,20 @@ The main output file produced by the pipeline:
 
     ./data_all_with_corr.csv
 
-### Data Structure
-
-| Column | Description |
-|------|-------------|
-| Simulation | Simulation identifier (migration rate + replicate) |
-| Population | Population ID |
-| Génération | Generation |
-| Longueur_Moyenne | Mean tract length carrying the beneficial allele |
-| Fréquence | Allele frequency |
-| mig | Migration rate |
-| rep | Replicate number |
-
 ---
 
 ## Summary Statistics
 
-For selected generations (740, 760, 780, 800, 820, 840, 860), correlations are computed between:
-
+For selected generations, correlations are computed between:
 - Allele frequency  
 - Mean ancestry tract length
 
 Correlation tests:
-
 - Pearson correlation  
 - One-sided test (alternative = "greater")
 
 Correlations are only computed when:
-
-- More than 7 populations are available  
+- The allele is present in all population
 - Allele frequency is not fixed (> 0.9 in all populations)
 
 ---
@@ -91,23 +76,13 @@ Correlations are only computed when:
 ### Heatmap of Significant Correlations
 
 A heatmap shows the proportion of significant correlations (p < 0.05) across:
-
 - Migration rates  
 - Generations
-
-Color scale:
-
-- Blue: low proportion  
-- Red: high proportion  
-- Grey: insufficient data
 
 ### Example Scatter Plot
 
 For a given migration rate and generation:
-
 - Allele frequency vs. mean tract length  
-- Points colored by population  
-- Linear regressions drawn per replicate
 
 ---
 
