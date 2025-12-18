@@ -8,7 +8,7 @@ This repository contains simulations and analyses investigating the propagation 
 
 - Simulation-based approach to model global vs. local adaptive introgression.  
 - Examined how allele frequency and lenght of introgressed tracts vary across the two models.  
-
+![Schéma du pipeline](images/simul.png)
 ---
 
 ## Empirical Data
