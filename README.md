@@ -8,7 +8,7 @@ This repository contains simulations and analyses investigating the propagation 
 
 - Simulation-based approach to model global vs. local adaptive introgression.  
 - Examined how allele frequency and lenght of introgressed tracts vary across the two models.  
-
+![Schéma du pipeline](images/simul.png)
 ---
 
 ## Empirical Data
@@ -16,7 +16,7 @@ This repository contains simulations and analyses investigating the propagation 
 - Case study: _Ciona robusta_ → _Ciona intestinalis_ introgression.  
 - Genotyped 96 individuals across 8 populations using phased data.  
 - Compared simulation results with empirical data.
-
+![Schéma du pipeline](images/pipeline_hptg.png)
 ---
 
 ## Requirements
