@@ -14,7 +14,7 @@ This repository contains a bioinformatics pipeline to analyse **haplotagging seq
 
 2. **Read alignment**
    - Alignment to reference genome using BWA  
-   → [`alignment.sh/`](alignment.sh)
+   → [`alignment.sh`](alignment.sh)
 
 3. **Singleton removal**
    - Removal of singletons (reads present alone on a molecule)
