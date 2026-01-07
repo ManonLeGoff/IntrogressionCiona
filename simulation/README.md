@@ -100,22 +100,7 @@ For a given migration rate and generation:
     ├── run_pipeline.R
     └── README.md
 
----
 
-## Requirements
-
-- SLiM  
-- Python 3  
-- R (≥ 4.0)
-
-R packages:
-- reticulate  
-- ggplot2  
-- dplyr  
-- tidyr  
-- future.apply
-
----
 
 
 
