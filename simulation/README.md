@@ -86,7 +86,7 @@ For a given migration rate and generation:
 
 ---
 
-## Repository Organization (Suggested)
+## Repository Organization
 
     .
     ├── scripts/
@@ -97,8 +97,7 @@ For a given migration rate and generation:
     │   └── global_model/
     │       └── data_all_with_corr.csv
     ├── figures/
-    ├── run_pipeline.R
-    └── README.md
+    └──run_pipeline.R
 
 
 
