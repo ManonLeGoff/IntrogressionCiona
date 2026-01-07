@@ -10,25 +10,25 @@ This repository contains a bioinformatics pipeline to analyse **haplotagging seq
    - Demultiplexing
    - Preflight checks
    - Quality control  
-   → [`data_check/`](01_data_check)
+   → [`data_check.sh`](data_check.sh)
 
 2. **Read alignment**
    - Alignment to reference genome using BWA  
-   → [`alignment/`](alignment)
+   → [`alignment.sh/`](alignment.sh)
 
 3. **Singleton removal**
    - Removal of singletons (reads present alone on a molecule)
    - Snakemake rule  
-   → [`singletons_removal/`](singletons_removal)
+   → [`singletons_removal.sh`](singletons_removal.sh)
 
 4. **Variant calling**
    - SNP calling using `harpy snp mpileup`  
-   → [`variant_calling/`](variant_calling)
+   → [`variant_calling.sh`](variant_calling.sh)
 
 5. **Phasing**
    - Variant filtering
    - Phasing with hapcut2 and Shapeit4  
-   → [`phasing/`](phasing)
+   → [`phasing.sh`](phasing.sh)
 
 ---
 
