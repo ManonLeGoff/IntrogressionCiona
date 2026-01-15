@@ -23,7 +23,7 @@ This repository contains a bioinformatics pipeline to analyse **haplotagging seq
 
 4. **Variant calling**
    - SNP calling using `harpy snp mpileup`  
-   → [`variant_calling.sh`](variant_calling.sh)
+   → [`snp_calling/snp_calling.sh`](snp_calling/snp_calling.sh)
 
 5. **Phasing**
    - Variant filtering
