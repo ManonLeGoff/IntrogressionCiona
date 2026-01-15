@@ -14,12 +14,12 @@ This repository contains a bioinformatics pipeline to analyse **haplotagging seq
 
 2. **Read alignment**
    - Alignment to reference genome using BWA  
-   → [`alignment.sh`](alignment.sh)
+   → [`align/align.sh`](align/align.sh)
 
 3. **Singleton removal**
    - Removal of singletons (reads present alone on a molecule)
    - Snakemake rule  
-   → [`singletons_removal.sh`](singletons_removal.sh)
+   → [`align/singletons.sh`](align/singletons.sh)
 
 4. **Variant calling**
    - SNP calling using `harpy snp mpileup`  
