@@ -71,21 +71,6 @@ Correlations are only computed when:
 
 ---
 
-## Visualization
-
-### Heatmap of Significant Correlations
-
-A heatmap shows the proportion of significant correlations (p < 0.05) across:
-- Migration rates  
-- Generations
-
-### Example Scatter Plot
-
-For a given migration rate and generation:
-- Allele frequency vs. mean tract length  
-
----
-
 ## Repository Organization
 
     .
