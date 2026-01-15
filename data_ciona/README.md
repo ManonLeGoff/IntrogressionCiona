@@ -8,9 +8,11 @@ This repository contains a bioinformatics pipeline to analyse **haplotagging seq
 
 1. **Data check**
    - Demultiplexing
+      → [`data_check/demultiplex.sh`](data_check/demultiplex.sh)
    - Preflight checks
-   - Quality control  
-   → [`data_check.sh`](data_check.sh)
+      → [`data_check/preflight.sh`](data_check/preflight.sh)
+   - Quality control
+      → [`data_check/qc.sh`](data_check/qc.sh) 
 
 2. **Read alignment**
    - Alignment to reference genome using BWA  
