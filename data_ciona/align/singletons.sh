@@ -1,3 +1,7 @@
+#Rule to eliminate “singletons” (reads present alone on a molecule): 
+#Edit by B. Penaud in the script previously implemented in harpy: 
+#$CONDA_PREFIX/lib/python3.13/site-packages/harpy/snakefiles
+
 rule singleton_bams:
     input:
         bx = "reports/data/bxstats/{sample}.bxstats.gz",
