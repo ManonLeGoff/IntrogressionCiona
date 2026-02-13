@@ -1,5 +1,5 @@
 # Manon Le Goff - July 15, 2025
-# Script to reconstruct local ancestry from all simulations across all generations
+# Script to retrieve ancestry from all simulations across all generations
 
 import os
 import tskit
@@ -12,6 +12,7 @@ import sys
 mig = sys.argv[1]
 rep = sys.argv[2]
 
+# Folder names
 simu_dirname = f"mig{mig}_rep{rep}"
 
 # Choose the model 
@@ -27,9 +28,13 @@ base_output_path = "results/island_model/ancestry"
 #simulations_base_dir = "results/global_model/simulations"
 #base_output_path = "results/global_model/ancestry"
 
-# Path
+# Path to this simulation
 simu_path = os.path.join(simulations_base_dir, simu_dirname)
 trees_dir = os.path.join(simu_path, "trees")
+
+if not os.path.isdir(trees_dir):
+    print(f"[ERROR] Trees folder not found: {trees_dir}")
+    sys.exit(1)
 
 # Create an output subfolder for this simulation
 simu_output_dir = os.path.join(base_output_path, simu_dirname)
@@ -39,7 +44,7 @@ os.makedirs(simu_output_dir, exist_ok=True)
 subpopulations = [2, 4, 5, 6, 7, 8, 9, 10]
 sample_size = 50
 
-# Loop over all trees files
+# Loop over all .trees files
 for filename in os.listdir(trees_dir):
 	if not filename.endswith(".trees"):
 		continue

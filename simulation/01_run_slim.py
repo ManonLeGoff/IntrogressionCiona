@@ -1,5 +1,5 @@
 # Manon Le Goff - July 10, 2025
-# Script to run SLiM
+# Script to run SLiM.
 
 import subprocess
 import pandas as pd
@@ -71,27 +71,28 @@ def plot_frequencies(data, output_file):
 
 
 def mutation_established(data, threshold=0.1):
+    """Checks if the mutation reached the given threshold."""
     return (data['frequency'] >= threshold).any()
 
 
 def run_until_data_exists(slim_script, output_file, mig_value, rep, threshold=0.1):
-    """Runs SLiM until mutation is established"""
+    """Runs SLiM until data exists and a mutation is established"""
     while True:
         run_slim(slim_script, mig_value, rep)
         data = load_frequencies(output_file)
         if not data.empty:
             if mutation_established(data, threshold):
-                print("Mutation established")
+                print("Mutation established.")
                 return data
             else:
-                print("not established, retry")
+                print("Mutation not established. Retrying...")
         else:
-            print("No data")
+            print("No data detected. Retrying...")
         time.sleep(1)
 
 
 def run_simulation(slim_script, base_output_dir, mig_value, rep):
-    """Run full SLiM simulation"""
+    """Sets up and runs a full SLiM simulation"""
     sim_name = f"mig{mig_value}_rep{rep}"
     print(f"Running {sim_name}")
 
