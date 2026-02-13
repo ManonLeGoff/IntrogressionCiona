@@ -1,4 +1,4 @@
-# Manon Le Goff - July 15, 2025
+# Manon Le Goff - Juillet 2025
 # Script to retrieve ancestry from all simulations across all generations
 
 import os

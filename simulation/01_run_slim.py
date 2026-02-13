@@ -1,4 +1,4 @@
-# Manon Le Goff - July 10, 2025
+# Manon Le Goff - Juillet 2025
 # Script to run SLiM.
 
 import subprocess

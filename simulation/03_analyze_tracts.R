@@ -1,5 +1,5 @@
-# Manon Le Goff - November 27, 2024
-# Script to create a summarized statistic
+# Manon Le Goff - Novembre 2024
+# Script to create summary statistic
 
 rm(list=ls())
 library(ggplot2)
