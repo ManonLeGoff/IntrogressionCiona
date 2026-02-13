@@ -96,14 +96,12 @@ analyze_tracts <- function(simu_dir) {
     return(freq)
   }
   
-  # Read files in the folder passed as argument
   mean_lengths <- c()
   labels_pop <- c()
   generations <- c()
   simulation_names <- c()
   frequencies <- c()
   
-  # List all CSV files in this folder
   csv_files <- list.files(simu_dir, pattern = "\\.csv$", full.names = TRUE)
   
   for (csv_file in csv_files) {
@@ -114,7 +112,6 @@ analyze_tracts <- function(simu_dir) {
     pop <- as.numeric(pop_match[2])
     gen <- as.numeric(pop_match[3])
     
-    # Read the CSV
     at_pop <- read.csv(csv_file)
     
     # Calculate tracts, lengths, frequency
@@ -123,7 +120,6 @@ analyze_tracts <- function(simu_dir) {
     mean_length <- mean(length_pop$length, na.rm = TRUE)
     freq_pop <- freq(at_pop)
     
-    # Append to vectors
     mean_lengths <- c(mean_lengths, mean_length)
     labels_pop <- c(labels_pop, pop)
     generations <- c(generations, gen)
