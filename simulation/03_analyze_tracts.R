@@ -123,7 +123,6 @@ analyze_tracts <- function(simu_dir) {
     mean_length <- mean(length_pop$length, na.rm = TRUE)
     freq_pop <- freq(at_pop)
     
-    # Append to vectors
     mean_lengths <- c(mean_lengths, mean_length)
     labels_pop <- c(labels_pop, pop)
     generations <- c(generations, gen)
