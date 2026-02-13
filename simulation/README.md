@@ -71,22 +71,7 @@ Correlations are only computed when:
 
 ---
 
-## Visualization
-
-### Heatmap of Significant Correlations
-
-A heatmap shows the proportion of significant correlations (p < 0.05) across:
-- Migration rates  
-- Generations
-
-### Example Scatter Plot
-
-For a given migration rate and generation:
-- Allele frequency vs. mean tract length  
-
----
-
-## Repository Organization (Suggested)
+## Repository Organization
 
     .
     ├── scripts/
@@ -97,25 +82,9 @@ For a given migration rate and generation:
     │   └── global_model/
     │       └── data_all_with_corr.csv
     ├── figures/
-    ├── run_pipeline.R
-    └── README.md
+    └──run_pipeline.R
 
----
 
-## Requirements
-
-- SLiM  
-- Python 3  
-- R (≥ 4.0)
-
-R packages:
-- reticulate  
-- ggplot2  
-- dplyr  
-- tidyr  
-- future.apply
-
----
 
 
 
