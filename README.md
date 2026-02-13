@@ -1,6 +1,6 @@
 # Adaptive introgression in _Ciona intestinalis_
 
-This repository contains simulations and analyses investigating the chromosomal footprint of adaptive introgression in subdivided populations.
+Simulation and analysis codes for studying the chromosomal footprint of adaptive introgression in subdivided populations.
 
 ---
 
