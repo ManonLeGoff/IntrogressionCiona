@@ -1,6 +1,6 @@
 # Adaptive introgression in _Ciona intestinalis_
 
-This repository contains simulations and analyses investigating the propagation of adaptive introgression in subdivided populations.
+This repository contains simulations and analyses investigating the chromosomal footprint of adaptive introgression in subdivided populations.
 
 ---
 
@@ -20,5 +20,4 @@ This repository contains simulations and analyses investigating the propagation 
 
 ## Requirements
 
-- SLiM, Python 3, R (≥ 4.0)  
-- R packages: reticulate, ggplot2, dplyr, tidyr, future.apply
+- SLiM, Python 3, R
