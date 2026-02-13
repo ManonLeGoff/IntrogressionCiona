@@ -28,14 +28,13 @@ def run_slim(slim_script, mig_value, rep):
 
 
 def load_frequencies(file_path):
-    """Loads allele frequencies from a SLiM file"""
+    """Load allele frequencies"""
     columns = ["generation", "population", "frequency"]
     try:
         data = pd.read_csv(file_path, sep="\t", names=columns)
     except FileNotFoundError:
         return pd.DataFrame()
     
-    # Mapping populations
     population_mapping = {
         "2": 1, "4": 2, "5": 3, "6": 4, "7": 5, "8": 6, "9": 7, "10": 8
     }
@@ -44,10 +43,7 @@ def load_frequencies(file_path):
 
 
 def plot_frequencies(data, output_file):
-    """Plots allele frequencies and saves the figure"""
-    if data.empty:
-        print("No data for plotting.")
-        return
+    """Plot allele frequencies"""
 
     plt.figure(figsize=(12, 8))
 
@@ -71,28 +67,27 @@ def plot_frequencies(data, output_file):
 
 
 def mutation_established(data, threshold=0.1):
-    """Checks if the mutation reached the given threshold."""
     return (data['frequency'] >= threshold).any()
 
 
 def run_until_data_exists(slim_script, output_file, mig_value, rep, threshold=0.1):
-    """Runs SLiM until data exists and a mutation is established"""
+    """Runs SLiM until mutation is established"""
     while True:
         run_slim(slim_script, mig_value, rep)
         data = load_frequencies(output_file)
         if not data.empty:
             if mutation_established(data, threshold):
-                print("Mutation established.")
+                print("Mutation established")
                 return data
             else:
-                print("Mutation not established. Retrying...")
+                print("not established, retry...")
         else:
-            print("No data detected. Retrying...")
+            print("No data")
         time.sleep(1)
 
 
 def run_simulation(slim_script, base_output_dir, mig_value, rep):
-    """Sets up and runs a full SLiM simulation"""
+    """Run a full simulation"""
     sim_name = f"mig{mig_value}_rep{rep}"
     print(f"Running {sim_name}")
 
@@ -112,7 +107,7 @@ def run_simulation(slim_script, base_output_dir, mig_value, rep):
     frequencies_data = run_until_data_exists(slim_script, local_output_file, mig_value, rep)
     plot_frequencies(frequencies_data, os.path.join(simulation_dir, "frequencies.png"))
 
-    print("Simulation successful.")
+    print("Simulation successful")
 
 #### Paths ####
 # Choose the model 
