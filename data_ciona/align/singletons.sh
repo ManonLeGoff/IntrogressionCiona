@@ -1,6 +1,6 @@
 #Rule to eliminate “singletons” (reads present alone on a molecule): 
 #Edit by B. Penaud in the script previously implemented in harpy: 
-#$CONDA_PREFIX/lib/python3.13/site-packages/harpy/snakefiles
+#$CONDA_PREFIX/lib/python3.13/site-packages/harpy/snakefiles/align_bwa.smk
 
 rule singleton_bams:
     input:
