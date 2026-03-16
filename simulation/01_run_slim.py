@@ -80,9 +80,7 @@ def run_until_data_exists(slim_script, output_file, mig_value, rep, threshold=0.
                 print("Mutation established")
                 return data
             else:
-                print("not established, retry...")
-        else:
-            print("No data")
+                print("not established")
         time.sleep(1)
 
 
