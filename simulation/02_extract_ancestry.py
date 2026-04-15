@@ -31,10 +31,6 @@ base_output_path = "results/island_model/ancestry"
 simu_path = os.path.join(simulations_base_dir, simu_dirname)
 trees_dir = os.path.join(simu_path, "trees")
 
-if not os.path.isdir(trees_dir):
-    print(f"[ERROR] Trees folder not found: {trees_dir}")
-    sys.exit(1)
-
 simu_output_dir = os.path.join(base_output_path, simu_dirname)
 os.makedirs(simu_output_dir, exist_ok=True)
 
@@ -44,22 +40,13 @@ sample_size = 50
 
 # Loop over all trees files
 for filename in os.listdir(trees_dir):
-	if not filename.endswith(".trees"):
-		continue
 
 	# Extract generation
 	match = re.search(r"generation(\d+)\.trees", filename)
-	if not match:
-		continue
 	generation = int(match.group(1))
 
 	trees_file_path = os.path.join(trees_dir, filename)
-
-	try:
-		ts = tskit.load(trees_file_path)
-	except Exception as e:
-		print(f"[ERROR] Loading {trees_file_path}: {e}")
-		continue
+    ts = tskit.load(trees_file_path)
 
 	for subpop in subpopulations:
 			# Extract individuals from the subpopulation
@@ -75,21 +62,16 @@ for filename in os.listdir(trees_dir):
 			# Simplification
 			ts_pop = ts.simplify(
 				node_ids,
-				update_sample_flags=False,
-				filter_nodes=False,
-				filter_populations=False,
-				filter_individuals=False,
-				filter_sites=False,
 				keep_input_roots=True,
 			)
 
 			# Ancestry
 			pa_pop = tspop.get_pop_ancestry(ts_pop, census_time=generation)
-			at_pop = pa_pop.ancestry_table
+			at_pop = pa_pop.squashed_table
 
 			output_csv = os.path.join(
 				simu_output_dir,
 				f"at_pop{subpop}_generation{generation}.csv"
 			)
 			at_pop.to_csv(output_csv, index=False)
-			print(f"[OK] {simu_dirname} - Generation {generation} - Pop {subpop}")
+			print(f"OK {simu_dirname} - Generation {generation} - Pop {subpop}")
