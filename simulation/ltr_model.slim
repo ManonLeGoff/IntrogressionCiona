@@ -143,9 +143,10 @@ mutation(m2) {
     target.addNewDrawnMutation(m2, 3749970);}
 
 // Migration between pop 1 and pop 2
-
 700:710 late() {
-	p2.setMigrationRates(p1, 0.001);}
+	p2.setMigrationRates(p1, 0.001);}	
+710 late() {
+	p2.setMigrationRates(p1, 0.0);}
 	
 // Registration of allelic frequencies and local ancestry every 10 years
 700:900 late() {
