@@ -9,17 +9,6 @@ library(metap)
 
 setwd("/Volumes/MANON/Data_cione/simulation/pipeline")
 
-my_theme <- function(){
-  theme_classic() +
-    theme(plot.title = element_text(size=20),
-          axis.title.x = element_text(size=15),
-          axis.title.y = element_text(size=15),
-          axis.text.x = element_text(size=15),
-          axis.text.y = element_text(size=15),
-          legend.title = element_text(size = 15),
-          legend.text = element_text(size = 13))
-}
-
 analyze_tracts <- function(simu_dir) {
   
   # Function to extract tracts carrying the mutation
