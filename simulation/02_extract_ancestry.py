@@ -14,18 +14,9 @@ rep = sys.argv[2]
 
 simu_dirname = f"mig{mig}_rep{rep}"
 
-# Choose the model 
-#simulations_base_dir = "results/ltr_model/simulations"
-#base_output_path = "results/ltr_model/ancestry"
-
-simulations_base_dir = "results/island_model/simulations"
-base_output_path = "results/island_model/ancestry"
-
-#simulations_base_dir = "results/local_step_model/simulations"
-#base_output_path = "results/local_step_model/ancestry"
-
-#simulations_base_dir = "results/global_model/simulations"
-#base_output_path = "results/global_model/ancestry"
+#Path
+simulations_base_dir = "results/global_model/simulations"
+base_output_path = "results/global_model/ancestry"
 
 # Path to the simulation
 simu_path = os.path.join(simulations_base_dir, simu_dirname)
