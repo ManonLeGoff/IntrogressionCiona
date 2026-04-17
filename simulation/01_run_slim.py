@@ -102,20 +102,9 @@ def run_simulation(slim_script, base_output_dir, mig_value, rep):
 
     print("Simulation OK")
 
-#### Paths ####
-# Choose the model 
-
-#slim_script_path = "scripts/ltr_model.slim"
-#base_output_dir = "results/ltr_model/simulations"
-
-slim_script_path = "scripts/island_model.slim"
-base_output_dir = "results/island_model/simulations"
-
-#slim_script_path = "scripts/local_step_model.slim"
-#base_output_dir = "results/local_step_model/simulations"
-
-#slim_script_path = "scripts/global_model.slim"
-#base_output_dir = "results/global_model/simulations"
+# Paths #
+slim_script_path = "scripts/global_model.slim"
+base_output_dir = "results/global_model/simulations"
 
 os.makedirs(base_output_dir, exist_ok=True)
 
