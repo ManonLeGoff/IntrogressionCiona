@@ -1,7 +1,7 @@
 # Simulation Pipeline – Adaptive Introgression
 
 This repository contains a simulation and analysis pipeline designed to study the relationship between allele frequency and ancestry tract length during adaptive introgression.  
-Simulations are performed using SLiM, and analysis in Python and R.
+Simulations are performed using SLiM, and analysis in Python and R for figures.
 
 
 ### Main Steps
@@ -15,7 +15,7 @@ Simulations are performed using SLiM, and analysis in Python and R.
    - 8 populations
    - Every 20 generations
 
-3. **03_analyze_tracts.R**  
+3. **03_analyze_tracts.py**  
    - Computes mean ancestry tract lengths carrying the beneficial allele  
    - Associates tract lengths with allele frequencies in the population
 
@@ -23,7 +23,7 @@ Simulations are performed using SLiM, and analysis in Python and R.
 
 ## Parallelization
 
-Simulations are parallelized in R using `future_lapply()` to speed up computation.  
+Simulations are parallelized in Python using `ProcessPoolExecutor`. 
 
 ---
 
