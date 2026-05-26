@@ -14,7 +14,7 @@ Simulation and analysis codes for studying the chromosomal footprint of adaptive
 ## Empirical Data
 
 - Case study: _Ciona robusta_ → _Ciona intestinalis_ introgression.  
-- Genotyped 96 individuals across 8 populations using phased data.  
+- Genotyped 96 individuals across 8 populations using Haplotagging phased data.  
 ![Schéma du pipeline](images/pipeline_hptg.png)
 ---
 
