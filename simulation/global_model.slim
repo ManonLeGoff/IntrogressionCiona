@@ -10,7 +10,7 @@ initialize() {
 	m0.convertToSubstitution = F;
 	
 	// an m1 mutation is "S"
-	initializeMutationType("m1", 0.0, "f", -0.08);
+	initializeMutationType("m1", 0.0, "f", 0.08);
 	m1.convertToSubstitution = F;
 	m1.color = "red";
 	
@@ -38,6 +38,18 @@ initialize() {
 	initializeRecombinationRate(1e-7);
 }
 
+// define mutation effects :
+mutationEffect(m1, p1) { return 1/effect; }
+mutationEffect(m1, p2) { return 1/effect; }
+mutationEffect(m1, p4) { return 1/effect; }
+mutationEffect(m1, p5) { return 1/effect; }
+mutationEffect(m1, p6) { return 1/effect; }
+mutationEffect(m1, p3) { return 1/effect; }
+mutationEffect(m1, p7) { return 1/effect; }
+mutationEffect(m1, p8) { return 1/effect; }
+mutationEffect(m1, p9) { return 1/effect; }
+mutationEffect(m1, p10) { return 1/effect; }
+
 // define the two divergening species in p1 and p2 :
 
 1 early() {
@@ -46,14 +58,16 @@ initialize() {
 	sim.addSubpop("p2", 1000);
 	
 	// create the canonical mutation objects
-	target = p1.haplosomes[0];
-	target = p2.haplosomes[0];
-	target.addNewDrawnMutation(m1, 3749970);
-	defineConstant("MUT1", target.mutations);
-	target.removeMutations();
-	target.addNewDrawnMutation(m2, 3749970);
-	defineConstant("MUT2", target.mutations);
-	target.removeMutations();
+	target1 = p1.haplosomes[0];
+	target2 = p2.haplosomes[0];
+	
+        target1.addNewDrawnMutation(m1, 3749970);
+	defineConstant("MUT1", target1.mutations);
+        target1.removeMutations();
+	
+        target2.addNewDrawnMutation(m2, 3749970);
+	defineConstant("MUT2", target2.mutations);
+	target2.removeMutations();
 	
 	// start homozygous "SS" in deme 1 and deme 2
 	p1.haplosomes.addMutations(MUT1);
@@ -61,7 +75,7 @@ initialize() {
 	
 	// migration
 	//	defineConstant("mig1", runif(1, 0.005, 0.02));
-	writeFile("/Volumes/MANON/Data_cione/simulation/pipeline/results/global_model/simulations/mig" + mig1 + "_rep" + rep + "/migration_rate.txt",
+	writeFile("/media/haplotagging/MANON1/Data_cione/simulation/pipeline/results/global_model/simulations/mig" + mig1 + "_rep" + rep + "/migration_rate.txt",
 		"Migration rate (mig1): " + mig1 + "\n");
 
 }
