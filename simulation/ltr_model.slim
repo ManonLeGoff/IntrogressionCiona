@@ -2,7 +2,7 @@
 //Simulation local adaptive introgression with 10 population
 initialize() {
     initializeTreeSeq();
-    initializeMutationRate(0);
+    initializeMutationRate(1e-8);
 
 //Generate a mutation which is unfavourable in the environment before the introgression occurs    
     //neutral mutations    
@@ -74,7 +74,7 @@ mutationEffect(m1, p10) { return 1/effect; }
 	p2.haplosomes.addMutations(MUT1); 
 	
 
-    writeFile("/Volumes/MANON/Data_cione/simulation/pipeline/results/ltr_model/simulations/mig" + mig1 + "_rep" + rep + "/migration_rate.txt",
+    writeFile("/media/haplotagging/MANON1/Data_cione/simulation/pipeline/results/ltr_model/simulations/mig" + mig1 + "_rep" + rep + "/migration_rate.txt",
           "Migration rate (mig1): " + mig1 + "\n");
 }
 
@@ -171,3 +171,4 @@ if (sim.cycle % 20 == 0) {
 }
 
 900 late() {sim.simulationFinished();}
+
