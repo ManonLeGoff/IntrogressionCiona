@@ -1,0 +1,15 @@
+Rscript infer_daim_T_s_surface.R \
+    --grid daim_grid_v1_0.001.rds \
+    --input daim_table_ciona.csv \
+    --output estimates_T_s.csv \
+    --surface-output likelihood_surface.csv \
+    --figure-prefix likelihood_surface \
+    --left-bp-col left_length_bp \
+    --right-bp-col right_length_bp \
+    --recomb-col recomb_cM_Mb \
+    --T-min 20 \
+    --T-max 500 \
+    --s-min 0 \
+    --s-max 0.25 \
+    --T-points 150 \
+    --s-points 150
