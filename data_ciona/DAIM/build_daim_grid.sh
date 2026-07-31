@@ -1,0 +1,14 @@
+Rscript build_daim_grid.R \
+    --daim ./daim_inference_R/DAIM/tract_length.py \
+    --python python \
+    --output daim_grid_v1_0.001.rds \
+    --v1 0.001 \
+    --ne 10000 \
+    --t-min 5 \
+    --t-max 500 \
+    --t-points 80 \
+    --t-scale linear \
+    --s-min 0 \
+    --s-max 0.25 \
+    --s-points 80 \
+    --s-scale log
