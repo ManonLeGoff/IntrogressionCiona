@@ -55,6 +55,7 @@ Main tools used in this pipeline:
 If you use this pipeline, please cite:
 - **Harpy** (P. Dimens, 2025)
 
+----
 
 # Introgression time and selection inference 
 
