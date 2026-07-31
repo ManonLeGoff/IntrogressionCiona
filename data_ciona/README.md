@@ -54,3 +54,31 @@ Main tools used in this pipeline:
 
 If you use this pipeline, please cite:
 - **Harpy** (P. Dimens, 2025)
+
+
+# Introgression time and selection inference 
+
+- Introgression time (T) and selection coefficient were calculated using Deterministic Adaptive Introgression Model (DAIM). All script are available in https://github.com/vlshchur/DAIM. 
+
+---
+
+## Build DAIM grid
+- Rscript build_daim_grid.R
+→ [`DAIM/build_daim_grid.sh`](DAIM/build_daim_grid.sh)
+
+---
+
+## T and s inference
+- Rscript infer_daim_T_s_surface.R
+→ [`DAIM/infer_daim_T_s_surface.sh`](DAIM/infer_daim_T_s_surface.sh)
+
+---
+
+## Citation
+
+If you use this pipeline, please cite:
+[https://github.com/vlshchur/DAIM](https://academic.oup.com/g3journal/article/10/10/3663/6053540)
+
+
+
+
