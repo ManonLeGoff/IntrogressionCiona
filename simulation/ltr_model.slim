@@ -96,12 +96,12 @@ mutation(m2) {
     for (p in pop2) {
     sim.addSubpopSplit(p, 1000, p2);}
     
-    // Connecter p3 et p1
+    // Connect p3 et p1
     p3.setMigrationRates(p1, mig1);
     p1.setMigrationRates(p3, mig1);
     
-   // Connecter pop receveuse
-	// habitat favorable 
+   // Connect the recipient population
+	// favorable habitat
 	p2.setMigrationRates(p4, mig1);
 	p4.setMigrationRates(p2, mig1);
 		
@@ -111,7 +111,7 @@ mutation(m2) {
 	p5.setMigrationRates(p6, mig1);
 	p6.setMigrationRates(p5, mig1);
 
-	// habitat défavorable 
+	// unfavorable habitat
 	p7.setMigrationRates(p8, mig1);
 	p8.setMigrationRates(p7, mig1);
 	
@@ -121,7 +121,7 @@ mutation(m2) {
 	p9.setMigrationRates(p10, mig1);
 	p10.setMigrationRates(p9, mig1);
 	
-	// Entre l'habitat favorable et défavorable
+	// between favorable and unfavorable habitat
 	p2.setMigrationRates(p7, mig1);
 	p7.setMigrationRates(p2, mig1);
 	
@@ -136,7 +136,7 @@ mutation(m2) {
 	}
 
 
-// Introduction of the advantageous mutation in the first species :
+// Introduction of the advantageous mutation in the first species:
 
 250 late() {
     target = sample(p3.haplosomes, 1);
