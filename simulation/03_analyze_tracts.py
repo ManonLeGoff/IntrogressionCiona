@@ -1,4 +1,3 @@
-# Manon Le Goff - Novembre 2024
 # Script to create summary statistic with the average tracts lenght and the frequency in each pop
 import os
 import re
