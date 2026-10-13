@@ -1,5 +1,4 @@
-# Manon Le Goff - Juillet 2025
-# Script to run SLiM.
+# Script to run SLiM
 
 import subprocess
 import pandas as pd
