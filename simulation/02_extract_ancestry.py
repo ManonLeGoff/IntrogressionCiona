@@ -1,4 +1,3 @@
-# Manon Le Goff - Juillet 2025
 # Script to reconstruct local ancestry from all simulations across all generations
 
 import os
